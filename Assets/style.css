@@ -1,8 +1,79 @@
 body {
-    margin: 0;
-    background-color:  #ffffff;
-  }
-  
+  margin: 0;
+}
 
-  
-  
+.purple-fading-header {
+  background: linear-gradient(to right, #800080, #4B0082);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.weather-display {
+  width: 70%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+#currentWeather {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-searches button {
+  margin-bottom: 8px;
+}
+
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.predefined-cities {
+  width: 25%;
+}
+
+.predefined-cities button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.predefined-cities button:hover {
+  background-color: #45a049;
+}
