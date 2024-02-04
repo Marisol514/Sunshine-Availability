@@ -28,13 +28,14 @@ async function getWeatherData(city) {
 function displayWeather(data) {
   const currentWeather = data.list[0];
   const temperatureFahrenheit = currentWeather.main.temp;
+  const weatherIcon = currentWeather.weather[0].icon;
 
   currentWeatherContainer.html(`
     <h2>${data.city.name} (${dayjs.unix(currentWeather.dt).format('MM/DD/YYYY')})</h2>
     <p>Temperature: ${temperatureFahrenheit.toFixed(2)} °F</p>
+    <img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
     <p>Humidity: ${currentWeather.main.humidity}%</p>
-    <p>Wind Speed: ${currentWeather.wind.speed} m/s</p>
-  `);
+    <p>Wind Speed: ${currentWeather.wind.speed} m/s</p>`);
 
   // Update Recent Searches
   updateRecentSearches();
