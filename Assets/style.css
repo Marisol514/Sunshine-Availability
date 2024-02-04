@@ -27,7 +27,7 @@ body {
 
 .weather-display {
   width: 70%;
-  background: #ffffff00;
+  background: #fff;
   display: flex;
   flex-direction: column;
 }
@@ -36,6 +36,7 @@ body {
   width: 25%;
   padding: 20px;
   background-color: #ffffff;
+  float: right;
 }
 
 .sidebar h2 {
@@ -87,6 +88,7 @@ body {
 
 
 #cityInput {
+  width: 25%;
   border-radius: 8px;
   padding: 8px;
 }
@@ -102,7 +104,7 @@ input {
 
 button {
   display: block;
-  width: 100%;
+  width: 25%;
   padding: 10px;
   background-color: #4caf50;
   color: #fff;

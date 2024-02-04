@@ -29,8 +29,8 @@ async function getWeatherData(city) {
 function updateSearchHistory(city) {
   if (!searchHistory.includes(city)) {
     searchHistory.push(city);
-    // Limit the search history to the last 8 entries
-    if (searchHistory.length > 8) {
+    // Limit the search history to the last 7 entries
+    if (searchHistory.length > 6) {
       searchHistory.shift(); // Remove the oldest entry
     }
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
