@@ -1,3 +1,4 @@
+
 const apiKey = '9b149de9367f6c0a5aa712320b23d01f';
 const units = 'imperial'; // Specify units as 'imperial' for Fahrenheit
 const searchForm = $('#searchForm');
@@ -52,19 +53,23 @@ function updateSearchHistory(city) {
 }
 
 // Modified searchCity function to display weather for the selected city
+// Modified searchCity function to clear previous weather data
 async function searchCity() {
-  const city = cityInput.val().trim();
+  // Clear existing weather information
+  currentWeatherContainer.html('');
+  boxesContainer.html('');
 
-  if (city !== '') {
-    // Fetch weather data
-    const data = await getWeatherData(city);
+  // If no city is provided, default to 'Toronto'
+  const cityName = cityInput.val().trim() || 'Los Angeles';
 
-    if (data) {
-      // Display weather information
-      displayWeather(data);
-      // Update search history
-      updateSearchHistory(city);
-    }
+  // Fetch weather data
+  const data = await getWeatherData(cityName);
+
+  if (data) {
+    // Display weather information
+    displayWeather(data);
+    // Update search history
+    updateSearchHistory(cityName);
   }
 }
 
@@ -77,9 +82,10 @@ function displayWeather(data) {
   currentWeatherContainer.html(`
     <h2>${data.city.name} (${dayjs.unix(currentWeather.dt).format('MM/DD/YYYY')})</h2>
     <p>Temperature: ${temperatureFahrenheit.toFixed(2)} °F</p>
+    <img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
     <p>Humidity: ${currentWeather.main.humidity}%</p>
     <p>Wind Speed: ${currentWeather.wind.speed} m/s</p>
-    <img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
+
   `);
 
   // Update Recent Searches
@@ -101,15 +107,14 @@ function displayWeather(data) {
       <div class="weather-box">
         <p>Date: ${forecastDate}</p>
         <p>Temperature: ${forecastTemperature.toFixed(2)} °F</p>
+        <img src="http://openweathermap.org/img/w/${forecastWeatherIcon}.png" alt="Weather Icon">
         <p>Humidity: ${forecastWeather.main.humidity}%</p>
         <p>Wind Speed: ${forecastWeather.wind.speed} m/s</p>
-        <img src="http://openweathermap.org/img/w/${forecastWeatherIcon}.png" alt="Weather Icon">
+
       </div>
     `);
   }
 }
 
-
-
-// Initial display of London on page load
+// Initial display based on the default city
 searchCity();
