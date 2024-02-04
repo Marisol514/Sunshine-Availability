@@ -1,11 +1,10 @@
-
 const apiKey = '9b149de9367f6c0a5aa712320b23d01f';
 const units = 'imperial'; // Specify units as 'imperial' for Fahrenheit
 const searchForm = $('#searchForm');
 const cityInput = $('#cityInput');
 const currentWeatherContainer = $('#currentWeather');
-const recentSearchesContainer = $('#searchHistory');
 const boxesContainer = $('.forecast-container');
+const recentSearchesList = $('#recentSearchesList');
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
 // Function to get weather data for a city using fetch
@@ -26,19 +25,6 @@ async function getWeatherData(city) {
   }
 }
 
-// Function to update recent searches section
-function updateRecentSearches() {
-  recentSearchesContainer.empty();
-  recentSearchesContainer.append('<h2>Recent Searches</h2>');
-  const uniqueSearches = Array.from(new Set(searchHistory)).slice(0, 7);
-
-  uniqueSearches.forEach(city => {
-    recentSearchesContainer.append(`
-      <button onclick="searchCityFromHistory('${city}')">${city}</button>
-    `);
-  });
-}
-
 // Function to update search history and initiate search
 function updateSearchHistory(city) {
   if (!searchHistory.includes(city)) {
@@ -48,19 +34,29 @@ function updateSearchHistory(city) {
       searchHistory.shift(); // Remove the oldest entry
     }
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
-    updateRecentSearches();
+    updateRecentSearchesList();
   }
+}
+
+// Function to update the recent searches list in the sidebar
+function updateRecentSearchesList() {
+  recentSearchesList.html('');
+  searchHistory.forEach(city => {
+    recentSearchesList.append(`
+      <button onclick="searchCity('${city}')">${city}</button>
+    `);
+  });
 }
 
 // Modified searchCity function to display weather for the selected city
 // Modified searchCity function to clear previous weather data
-async function searchCity() {
+async function searchCity(city) {
   // Clear existing weather information
   currentWeatherContainer.html('');
   boxesContainer.html('');
 
   // If no city is provided, default to 'Toronto'
-  const cityName = cityInput.val().trim() || 'Los Angeles';
+  const cityName = city || cityInput.val().trim() || 'Los Angeles';
 
   // Fetch weather data
   const data = await getWeatherData(cityName);
@@ -68,8 +64,6 @@ async function searchCity() {
   if (data) {
     // Display weather information
     displayWeather(data);
-    // Update search history
-    updateSearchHistory(cityName);
   }
 }
 
@@ -85,11 +79,10 @@ function displayWeather(data) {
     <img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
     <p>Humidity: ${currentWeather.main.humidity}%</p>
     <p>Wind Speed: ${currentWeather.wind.speed} m/s</p>
-
   `);
 
-  // Update Recent Searches
-  updateRecentSearches();
+  // Update Recent Searches List
+  updateRecentSearchesList();
 
   // Clear the forecast container
   boxesContainer.html('');
@@ -110,7 +103,6 @@ function displayWeather(data) {
         <img src="http://openweathermap.org/img/w/${forecastWeatherIcon}.png" alt="Weather Icon">
         <p>Humidity: ${forecastWeather.main.humidity}%</p>
         <p>Wind Speed: ${forecastWeather.wind.speed} m/s</p>
-
       </div>
     `);
   }

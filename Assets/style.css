@@ -1,6 +1,14 @@
 body {
   margin: 0;
   padding: 0 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  background-color: #7b68ee;
+  padding: 20px;
+  text-align: center;
+  color: white;
 }
 
 .purple-fading-header {
@@ -8,6 +16,7 @@ body {
   color: #fff;
   text-align: center;
   padding: 20px;
+  border-radius: 0%;
 }
 
 .main-container {
@@ -18,9 +27,19 @@ body {
 
 .weather-display {
   width: 70%;
-  background: #fff;
+  background: #ffffff00;
   display: flex;
   flex-direction: column;
+}
+
+.sidebar {
+  width: 25%;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.sidebar h2 {
+  margin-bottom: 10px;
 }
 
 #currentWeather {
@@ -33,9 +52,19 @@ body {
   flex-direction: column;
 }
 
-.recent-searches button {
+#recentSearchesList button {
+  display: block;
   margin-bottom: 8px;
-  border-radius: 10px;
+  padding: 8px;
+  width: 100%;
+  text-align: left;
+  background-color: #ddd;
+  border: 1px solid #bbb;
+  cursor: pointer;
+}
+
+#recentSearchesList button:hover {
+  background-color: #ccc;
 }
 
 .forecast-container {
@@ -45,6 +74,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: 10px;
+  margin-bottom: 20px
 }
 
 .weather-box {
