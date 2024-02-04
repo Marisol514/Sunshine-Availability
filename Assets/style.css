@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0 20px;
 }
 
 .purple-fading-header {
@@ -34,6 +35,30 @@ body {
 
 .recent-searches button {
   margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+.forecast-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.weather-box {
+  width: calc(20% - 10px); 
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+
+#cityInput {
+  border-radius: 8px;
+  padding: 8px;
 }
 
 
@@ -53,10 +78,31 @@ button {
   color: #fff;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 button:hover {
   background-color: #45a049;
+}
+
+.boxes-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.box {
+  width: 14%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#currentWeather {
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .predefined-cities {
@@ -76,4 +122,16 @@ button:hover {
 
 .predefined-cities button:hover {
   background-color: #45a049;
+}
+
+
+@media (max-width: 768px) {
+  .boxes-container {
+    flex-wrap: wrap;
+  }
+
+  .box {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
