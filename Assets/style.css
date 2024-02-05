@@ -5,8 +5,8 @@ body {
 }
 
 .fading-header {
-  background: linear-gradient(to right, #6f596f93, #4c00820c);
-  color: #fff;
+  background: linear-gradient(to right, #6f596f45, #1a0a2540);
+  color: #ffffffa4;
   text-align: center;
   padding: 20px;
   border-radius: 10%;
@@ -28,23 +28,23 @@ body {
 
 .weather-display {
   width: 70%;
-  background: rgba(121, 122, 108, 0.306);
+  background: rgba(82, 80, 85, 0.367);
   display: flex;
   flex-direction: column;
   color: #fff;
-  border-radius: 10%;
+  border-radius: 1%;
 }
 
 .sidebar {
   width: 25%;
   padding: 20px;
   border-radius: 10%;
-  background-color: #ffffff0a;
+  background-color: #f6f0f00a;
 }
 
 .sidebar h2 {
   margin-bottom: 10px;
-  color: #fff;
+  color: rgb(246, 244, 244);
   padding: 0 10px;
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 #recentSearchesList button:hover {
-  background-color: #1615157f;
+  background-color: #0101019e;
 }
 
 .forecast-container {
@@ -83,14 +83,15 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
   background-color: #ffffff11;
-  background-image: url('your-image-path.jpg'); /* Use the same path as in #backgroundImage */
+  background-image: url('your-image-path.jpg'); 
   background-size: cover;
 }
 
 .weather-box {
   width: calc(20% - 10px);
   padding: 10px;
-  border: 1px solid #cccccc60;
+  border: 1px solid #2c2a2a60;
+  background-color: rgba(0, 0, 0, 0.177);
   box-sizing: border-box;
   border-radius: 10px;
 }
@@ -123,8 +124,8 @@ button {
   display: block;
   width: 25%;
   padding: 10px;
-  background-color: #00000039;
-  color: #fff;
+  background-color: #0000006d;
+  color: #ffffffc3;
   border: none;
   cursor: pointer;
   border-radius: 10px;

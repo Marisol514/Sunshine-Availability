@@ -1,5 +1,5 @@
 const apiKey = '9b149de9367f6c0a5aa712320b23d01f';
-const unsplashApiKey = 'QsjcagTBQoM7R7guV7vpRdMCShgIWFwaisc823yRf1A'; // Replace with your actual Unsplash API key
+const unsplashApiKey = 'QsjcagTBQoM7R7guV7vpRdMCShgIWFwaisc823yRf1A'; 
 const units = 'imperial';
 const searchForm = $('#searchForm');
 const cityInput = $('#cityInput');
@@ -38,7 +38,7 @@ async function getCityImage(city) {
     }
 
     const data = await response.json();
-    return data.urls.small; // Change 'small' to the desired image size (e.g., 'regular', 'full')
+    return data.urls.small;
   } catch (error) {
     console.error('Error fetching city image:', error);
     return null;
