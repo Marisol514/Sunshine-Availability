@@ -49,7 +49,7 @@ async function getCityImage(city) {
 function updateSearchHistory(city) {
   if (!searchHistory.includes(city)) {
     searchHistory.push(city);
-    if (searchHistory.length > 8) {
+    if (searchHistory.length > 5) {
       searchHistory.shift();
     }
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));

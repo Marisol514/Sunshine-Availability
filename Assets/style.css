@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background: url('your-image-path.jpg'); /* Add the path to your background image */
+  background: url('your-image-path.jpg');
   background-size: cover;
 }
 
@@ -83,6 +83,8 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
   background-color: #ffffff11;
+  background-image: url('your-image-path.jpg'); /* Use the same path as in #backgroundImage */
+  background-size: cover;
 }
 
 .weather-box {
@@ -121,7 +123,7 @@ button {
   display: block;
   width: 25%;
   padding: 10px;
-  background-color: #0000008f;
+  background-color: #00000039;
   color: #fff;
   border: none;
   cursor: pointer;
